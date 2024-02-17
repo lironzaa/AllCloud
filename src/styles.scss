@@ -1,1 +1,107 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'colors';
+@import 'ngx-toastr/toastr';
+
+body {
+  margin: 0;
+}
+
+// Layouts
+.container-fluid {
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -5px;
+}
+
+.col-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 992px) {
+  .col-lg-6 {
+    flex: 0 0 calc(50% - 10px);
+    width: calc(50% - 10px);
+    margin: 5px;
+  }
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btns-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+// Texts
+.text-center {
+  text-align: center;
+}
+
+.main-text {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.error-text {
+  color: var(--error-color);
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+// Inputs
+.text-input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-label {
+  margin-right: 1rem;
+  align-self: flex-start;
+}
+
+input[type=text] {
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=text][disabled] {
+  background-color: var(--gray-color);
+}
+
+
+// Buttons
+
+button {
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+}

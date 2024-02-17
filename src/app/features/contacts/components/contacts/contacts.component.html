@@ -1,0 +1,16 @@
+<div>
+  <p class="text-center main-text">Contacts</p>
+  <div class="btns-container">
+    <button class="btn-primary" (click)="createContact()">
+      Add contact
+    </button>
+    <button class="btn-primary" (click)="createRandomContacts()">
+      Add 10 random contacts
+    </button>
+  </div>
+  <div *ngFor="let contact of contacts" class="d-flex">
+    <app-contact-item
+      [contact]="contact"
+    />
+  </div>
+</div>

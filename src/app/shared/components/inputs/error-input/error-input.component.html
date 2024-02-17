@@ -1,0 +1,7 @@
+<div *ngIf="formSubmitted && formField?.errors">
+  <ng-container *ngFor="let error of errors; trackBy: trackByErrorMessage">
+    <div *ngIf="formField?.errors?.[error.errorName]" class="error-text text-center bold-text">
+      <span>{{error.errorMessage}}</span>
+    </div>
+  </ng-container>
+</div>

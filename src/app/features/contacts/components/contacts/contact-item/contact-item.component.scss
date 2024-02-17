@@ -1,0 +1,29 @@
+:host {
+  width: 100%;
+}
+
+.contact-container {
+  display: flex;
+  width: 100%;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 18px;
+  margin-inline-start: 1rem;
+}
+
+.contact-name {
+  font-weight: bold;
+}
+
+.contact-image {
+  max-width: 80px;
+  max-height: 80px;
+  border-radius: 50px;
+  aspect-ratio: 1/1;
+}

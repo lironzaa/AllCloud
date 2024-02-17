@@ -1,0 +1,12 @@
+<div class="text-input-container">
+  <label for="{{customFormControlName}}" class="input-label">{{placeholder}}</label>
+  <input [formControlName]="customFormControlName" mask="separator.2" separatorLimit="120"
+         [ngClass]="{'is-invalid':formSubmitted && formField?.errors}"
+         class="form-control" type='text' [id]="customFormControlName">
+</div>
+
+<app-error-input
+  [formField]="formField"
+  [formSubmitted]="formSubmitted"
+  [errors]="errors">
+</app-error-input>

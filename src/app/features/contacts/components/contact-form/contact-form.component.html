@@ -1,0 +1,99 @@
+<div>
+  <p class="text-center main-text">{{!isEditingContact ? 'Create contact form' : 'Edit contact form'}}</p>
+  <div class="btns-container" *ngIf="isEditingContact">
+    <button type="submit" class="btn-primary" (click)="toggleEditMode()">{{!isEditMode ? 'Edit mode' : 'View mode'}}</button>
+    <button type="submit" class="btn-primary" (click)="deleteContact()">Delete contact</button>
+  </div>
+  <!--  <app-spinner class="d-flex-center"></app-spinner>-->
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmitContactForm()">
+    <!--    <app-spinner *ngIf="isLoading"></app-spinner>-->
+    <ng-container *ngIf="!isLoading">
+      <div class="row">
+        <div class="col-12 col-lg-6">
+          <app-text-input
+            [formField]="contactForm.get('name')"
+            [formSubmitted]="formSubmitted"
+            [customFormControlName]="'name'"
+            [placeholder]="'Name'"
+          >
+          </app-text-input>
+        </div>
+        <div class="col-12 col-lg-6">
+          <app-text-input
+            [formField]="contactForm.get('fullAddress')"
+            [formSubmitted]="formSubmitted"
+            [customFormControlName]="'fullAddress'"
+            [placeholder]="'Full address'"
+          >
+          </app-text-input>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-6">
+          <app-text-input
+            [formField]="contactForm.get('email')"
+            [formSubmitted]="formSubmitted"
+            [customFormControlName]="'email'"
+            [placeholder]="'Email'"
+            [errors]="contactFormErrors.email"
+          >
+          </app-text-input>
+        </div>
+        <div class="col-12 col-lg-6">
+          <app-text-input
+            [formField]="contactForm.get('phone')"
+            [formSubmitted]="formSubmitted"
+            [customFormControlName]="'phone'"
+            [placeholder]="'Phone'"
+            [errors]="contactFormErrors.phone"
+          >
+          </app-text-input>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-6">
+          <app-text-input
+            [formField]="contactForm.get('cell')"
+            [formSubmitted]="formSubmitted"
+            [customFormControlName]="'cell'"
+            [placeholder]="'Cell'"
+            [errors]="contactFormErrors.cell"
+          >
+          </app-text-input>
+        </div>
+        <div class="col-12 col-lg-6">
+          <app-text-input
+            [formField]="contactForm.get('registrationDate')"
+            [formSubmitted]="formSubmitted"
+            [customFormControlName]="'registrationDate'"
+            [placeholder]="'Registration Date'"
+          >
+          </app-text-input>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-6">
+          <app-number-input
+            [formField]="contactForm.get('age')"
+            [formSubmitted]="formSubmitted"
+            [customFormControlName]="'age'"
+            [placeholder]="'Age'"
+          >
+          </app-number-input>
+        </div>
+        <div class="col-12 col-lg-6 d-flex-center">
+          <app-image-upload-input
+            [formField]="contactForm.get('image')"
+            [formSubmitted]="formSubmitted"
+            [customFormControlName]="'image'"
+            [placeholder]="'Upload Image'"
+          >
+          </app-image-upload-input>
+        </div>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn-primary">{{!isEditingContact ? 'Create contact' : 'Edit contact'}}</button>
+      </div>
+    </ng-container>
+  </form>
+</div>

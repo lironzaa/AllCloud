@@ -1,0 +1,14 @@
+<div class="image-upload-container d-flex-center">
+  <label [for]="customFormControlName" class="input-label">{{ placeholder }}</label>
+  <input type="file" accept="image/*" (change)="onFileSelected($event)" [id]="customFormControlName">
+
+  <div *ngIf="imageUrl" class="image-preview">
+    <img [src]="imageUrl" alt="Image Preview">
+  </div>
+
+  <app-error-input
+    [formField]="formField"
+    [formSubmitted]="formSubmitted"
+    [errors]="errors">
+  </app-error-input>
+</div>
