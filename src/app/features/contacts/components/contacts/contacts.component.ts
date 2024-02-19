@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
+import { Observable } from "rxjs";
 
 import { ContactService } from "../../services/contact.service";
 import { Contact } from "../../interfaces/contact";
@@ -12,11 +13,10 @@ import { Contact } from "../../interfaces/contact";
 export class ContactsComponent implements OnInit {
   constructor(private contactService: ContactService, private router: Router) {}
 
-  contacts: Contact[] = []
+  contacts$: Observable<Contact[]> = this.contactService.getContacts$();
 
   ngOnInit(): void {
-    this.contactService.getContacts()
-      .subscribe(contacts => this.contacts = contacts.data);
+    this.contactService.fetchContacts();
   }
 
   createContact(): void {
@@ -24,7 +24,6 @@ export class ContactsComponent implements OnInit {
   }
 
   createRandomContacts(): void {
-    this.contactService.createRandomContacts(10)
-      .subscribe(getContactsResponse => this.contacts = getContactsResponse.data);
+    this.contactService.createRandomContacts(10);
   }
 }

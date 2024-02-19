@@ -1,13 +1,12 @@
 <div>
   <p class="text-center main-text">{{!isEditingContact ? 'Create contact form' : 'Edit contact form'}}</p>
   <div class="btns-container" *ngIf="isEditingContact">
-    <button type="submit" class="btn-primary" (click)="toggleEditMode()">{{!isEditMode ? 'Edit mode' : 'View mode'}}</button>
+    <button type="submit" class="btn-primary"
+            (click)="toggleEditMode()">{{!isEditMode ? 'Edit mode' : 'View mode'}}</button>
     <button type="submit" class="btn-primary" (click)="deleteContact()">Delete contact</button>
   </div>
-  <!--  <app-spinner class="d-flex-center"></app-spinner>-->
   <form [formGroup]="contactForm" (ngSubmit)="onSubmitContactForm()">
-    <!--    <app-spinner *ngIf="isLoading"></app-spinner>-->
-    <ng-container *ngIf="!isLoading">
+    <ng-container>
       <div class="row">
         <div class="col-12 col-lg-6">
           <app-text-input

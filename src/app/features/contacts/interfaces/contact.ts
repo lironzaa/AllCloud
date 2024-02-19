@@ -8,17 +8,22 @@ export interface Contact {
   registrationDate: string;
   age: string;
   image: File | string;
+  imagePath?: string;
 }
 
 export interface GetContactsResponse {
-  data: Contact[];
+  contacts: Contact[];
 }
 
 export interface GetContactResponse {
-  data: Contact;
+  contact: Contact;
 }
 
 export interface CreateContactResponse {
+  message: 'success';
+}
+
+export interface UpdateContactResponse {
   message: 'success';
 }
 
